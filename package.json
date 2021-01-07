@@ -1,0 +1,35 @@
+{
+  "name": "mongodb-reaction-role",
+  "version": "1.0.6",
+  "description": "A lightweight and easy to use db managing package to give roles with reactions",
+  "main": "index.js",
+  "dependencies": {
+    "mongoose": "^5.7.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meister03/mongodb-reaction-role.git"
+  },
+
+  "keywords": [
+    "discord",
+    "discord.js",
+    "intelligent saving",
+    "bot",
+    "bots",
+    "reaction roles",
+    "reaction",
+    "mongo",
+    "mongoose",
+    "mongodb",
+    "manage-roles",
+    "framework"
+  ],
+  "author": "meister03",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meister03/mongodb-reaction-role/issues"
+  },
+  "homepage": "https://github.com/meister03/mongodb-reaction-role#readme"
+}
