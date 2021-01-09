@@ -95,7 +95,7 @@ message.channel.send("Successfully edited the reaction role!")
 ```js 
 const Discord = require('discord.js');
 const { prefix, token , url } = require('./config.json');
-const react = require("./reaction roles/index.js");
+const react = require("mongodb-reaction-role");
 const client = new Discord.Client({
 	autoReconnect: true,
 	partials: ["MESSAGE", "CHANNEL", "GUILD_MEMBER", "REACTION", "MESSAGE", "USER"]
