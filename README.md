@@ -2,7 +2,7 @@
 <p align="center"><img src="https://img.shields.io/npm/v/discord-mongodb-prefix"> <img src="https://img.shields.io/github/repo-size/meister03/mongodb-reaction-role"> <img src="https://img.shields.io/npm/l/mongodb-reaction-role"> <img src="https://img.shields.io/github/contributors/mongodb-reaction-role">  <a href="https://discord.gg/YTdNBHh"><img src="https://discordapp.com/api/guilds/697129454761410600/widget.png" alt="Discord server"/></a></p>
 
 # Discord Mongodb-reaction-role
-A lightweight managing package to save/add/remove reaction roles and save them in dm. Intelligent saving ways to lower traffic up to 90% and prevent multipy fetches. This Package can be used for large bots too!
+A lightweight managing package to save/add/remove reaction roles and save them in a db. Intelligent saving ways to lower traffic up to 90% and prevent multipy fetches. This Package can be used for large bots too!
 
 **If you need help feel free to join our <a href="https://discord.gg/YTdNBHh ">discord server</a>. We will provied you all help ☺**
 # Download
@@ -22,7 +22,7 @@ const client = new Discord.Client({
 	partials: ["MESSAGE", "CHANNEL", "GUILD_MEMBER", "REACTION", "MESSAGE", "USER"]
 }); // this is required to get the messages of the reaction roles
 client.react = new Map();  // do not rename here something, or else Dx // save all msg id, role id
-client.fetchforguild = new Map() // here it will be save if the reaction roles were fetched from db
+client.fetchforguild = new Map() //it will be saved, if the reaction roles were fetched from db
 ```
 After that, you have to provide a valid mongodb url and set the default prefix.
 ```js
@@ -102,7 +102,7 @@ const client = new Discord.Client({
 }); // this is required to get the messages of the reaction roles
 
 client.react = new Map();  // do not rename here something, or else Dx // save all msg id, role id
-client.fetchforguild = new Map() // here it will be save if the reaction roles were fetched from db
+client.fetchforguild = new Map() // it will be saved, if the reaction roles were fetched from db
 //// Add this
 react.setURL(url);
 client.once('ready', () => {
@@ -182,6 +182,7 @@ client.login(token);
 *Is time for you to use the code creative..*
 
 # Methods
+**See if the reaction on the message id exist as reaction role or when not fetched in the db**
 ```js
 let fetch = await react.fetchrr(client, reaction.message.guild.id ,reaction.message.id , reaction.emoji.name);
 //undefined || or gives a map entry ==> fetch.roleid, fetch.messageid , fetch.reaction, fetch.guildid , fetch.dm
@@ -190,7 +191,7 @@ let fetch = await react.fetchrr(client, reaction.message.guild.id ,reaction.mess
 ```js
 await react.fetchallrr(client); 
 ```
-**See if the reaction on the message id exist as reaction role**
+
 
 **Have fun and feel free to contribute/suggest or contact me on my discord server or per dm on Meister#9667**
 
