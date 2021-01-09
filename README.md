@@ -14,13 +14,13 @@ npm i mongoose  // when u did not installed it
 
 # Setting Up
 First we include the module into the project (into your main bot file).
-** Intent must me enabled( Read more [here](https://cdn.discordapp.com/attachments/736254990619770981/797536603798634556/unknown.png))**
+** Intent must me enabled. See more [here](https://cdn.discordapp.com/attachments/736254990619770981/797536603798634556/unknown.png)**
 ```js
 const react = require("mongodb-reaction-role");
 const client = new Discord.Client({
 	autoReconnect: true,
 	partials: ["MESSAGE", "CHANNEL", "GUILD_MEMBER", "REACTION", "MESSAGE", "USER"]
-}); // his required to get the messages of the reaction roles
+}); // this is required to get the messages of the reaction roles
 client.react = new Map();  // do not rename here something, or else Dx // save all msg id, role id
 client.fetchforguild = new Map() // here it will be save if the reaction roles were fetched from db
 ```
@@ -99,7 +99,7 @@ const react = require("./reaction roles/index.js");
 const client = new Discord.Client({
 	autoReconnect: true,
 	partials: ["MESSAGE", "CHANNEL", "GUILD_MEMBER", "REACTION", "MESSAGE", "USER"]
-}); // his required to get the messages of the reaction roles
+}); // this is required to get the messages of the reaction roles
 
 client.react = new Map();  // do not rename here something, or else Dx // save all msg id, role id
 client.fetchforguild = new Map() // here it will be save if the reaction roles were fetched from db
