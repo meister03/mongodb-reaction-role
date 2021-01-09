@@ -14,7 +14,7 @@ npm i mongoose  // when u did not installed it
 
 # Setting Up
 First we include the module into the project (into your main bot file).
-** Intent must me enabled. See more [here](https://cdn.discordapp.com/attachments/736254990619770981/797536603798634556/unknown.png)**
+**Intent must me enabled. See more [here](https://cdn.discordapp.com/attachments/736254990619770981/797536603798634556/unknown.png)**
 ```js
 const react = require("mongodb-reaction-role");
 const client = new Discord.Client({
