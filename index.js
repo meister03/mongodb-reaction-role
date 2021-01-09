@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const serverset = require("./models/server.js");
+const serverset = require("./models/schema.js");
 
 class react {
 
@@ -122,12 +122,12 @@ class react {
     if (!guildId) throw new TypeError("A guild id was not provided.");
     if(!client.fetchforguild.has(guildId)){
     let allrole = await serverset.find({guildid: guildId}).sort([['guildid', 'descending']]).exec();
-    let i;
+    let i = 0;
     for(i ; i < Object.keys(allrole).length; i++){
-      client.react.set(allrole[i].msgid+allrole[i].emoji, { ///this saves the msgid in a map to prevent a fetch
+    await  client.react.set(allrole[i].msgid+allrole[i].reaction, { ///this saves the msgid in a map to prevent a fetch
         guildid: allrole[i].guildid,
         msgid: allrole[i].msgid, 
-        reaction: allrole[i].emoji , 
+        reaction: allrole[i].reaction , 
         roleid: allrole[i].roleid,
         dm: allrole[i].dm
       }); 
@@ -138,6 +138,27 @@ class react {
     });
   }
     return client.react.get(msgid + emoji); 
+  }
+
+/**
+* @param {object} [client] - Discord client, will save the data in a Map to prevent multiple fetches
+*/
+static async fetchallrr(client) {
+    if (!client) throw new TypeError("An client was not provided.");
+    let all = await serverset.find({}).sort([['guildid', 'descending']]).exec();
+ 
+ /*   let i = 0;
+    for(i ; i < Object.keys(all).length; i++){
+      client.react.set(all[i].msgid+all[i].reaction, { ///this saves the msgid in a map to prevent a fetch
+        guildid: all[i].guildid,
+        msgid: all[i].msgid, 
+        reaction: all[i].reaction , 
+        roleid: all[i].roleid,
+        dm: all[i].dm
+      }); 
+    }*/
+   
+    return all; 
   }
 
 
