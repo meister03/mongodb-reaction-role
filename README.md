@@ -21,16 +21,19 @@ const client = new Discord.Client({
 	autoReconnect: true,
 	partials: ["MESSAGE", "CHANNEL", "GUILD_MEMBER", "REACTION", "MESSAGE", "USER"]
 }); // this is required to get the messages of the reaction roles
-client.react = new Map();  // do not rename here something, or else Dx // save all msg id, role id
-client.fetchforguild = new Map() //it will be saved, if the reaction roles were fetched from db
+
+// Attach React To The Client So We Can Access Anywhere
+client.react = new Map(); 
+client.fetchforguild = new Map();
+
 ```
 After that, you have to provide a valid mongodb url and set the default prefix.
 ```js
-react.setURL("mongodb://..."); //builts a connection with the db
+react.setURL("mongodb://..."); // Connect React To Our DB
 
 ```
 
-# Fetching Reaction Roles/ Add Role
+# Fetching Reaction Roles / Add Role
 
 *Following examples assume that your `Discord.Client` is called `client`.*
 
@@ -48,6 +51,7 @@ client.on('messageReactionAdd',async  (reaction  , user ) => {
     }
   });
 ```
+
 # Remove Role
 ```js
 client.on('messageReactionRemove',async  (reaction, user) => {
@@ -63,6 +67,7 @@ client.on('messageReactionRemove',async  (reaction, user) => {
   }
 });
 ```
+
 # Create/Delete a Reaction Role
 ```js
 if(command === "createrr"){ /// you can use your command handler to, but look that you overgive the parameters client, message
@@ -101,7 +106,7 @@ const client = new Discord.Client({
 	partials: ["MESSAGE", "CHANNEL", "GUILD_MEMBER", "REACTION", "MESSAGE", "USER"]
 }); // this is required to get the messages of the reaction roles
 
-client.react = new Map();  // do not rename here something, or else Dx // save all msg id, role id
+client.react = new Map();  // do not rename here something, or else xD // save all msg id, role id
 client.fetchforguild = new Map() // it will be saved, if the reaction roles were fetched from db
 //// Add this
 react.setURL(url);
@@ -176,7 +181,9 @@ const stats = new Discord.MessageEmbed()
 return message.channel.send(stats)
 } 
 });
-client.login(token);
+
+// Connect To The Discord API And Log Errors.
+client.login(token).catch(console.error);
 ```
 
 *Is time for you to use the code creative..*
