@@ -11,7 +11,10 @@ You can download it from npm:
 npm i mongodb-reaction-role
 npm i mongoose  // when u did not installed it
 ```
+# Note:
+**When you want custom emoji reaction role, just pass on the `.createrr` method a emoji id instead of the emoji name**
 
+**And on the MessageReaction Event:just fetch the reaction role with `reaction.emoji.id`  instead of `reaction.emoji.name`**
 # Setting Up
 First we include the module into the project (into your main bot file).
 **Intent must me enabled. See more [here](https://cdn.discordapp.com/attachments/736254990619770981/797536603798634556/unknown.png)**
