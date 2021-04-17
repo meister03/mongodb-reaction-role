@@ -9,4 +9,4 @@ const reactionSchema = new mongoose.Schema({
   dm: {type: Boolean }
 });
 
-module.exports = mongoose.model('reaction', reactionSchema);
+module.exports = mongoose.model('Reactons', reactionSchema, "Reactions");
